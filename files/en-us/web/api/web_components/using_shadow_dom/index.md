@@ -78,11 +78,11 @@ The following page contains two elements, a {{htmlelement("div")}} element with 
 We're going to use the `"host"` element as the shadow host. We call {{domxref("Element.attachShadow()", "attachShadow()")}} on the host to create the shadow DOM, and can then add nodes to the shadow DOM just like we would to the main DOM. In this example we add a single `<span>` element:
 
 ```js
-const host = document.querySelector("#host");
-const shadow = host.attachShadow({ mode: "open" });
+const shadowHost = document.querySelector("#host");
+const shadowRoot = shadowHost.attachShadow({ mode: "open" });
 const span = document.createElement("span");
 span.textContent = "I'm in the shadow DOM";
-shadow.appendChild(span);
+shadowRoot.appendChild(span);
 ```
 
 The result looks like this:
@@ -135,11 +135,11 @@ Clicking the "Uppercase span elements" button finds all `<span>` elements in the
 Clicking the "Reload" button just reloads the page, so you can try again.
 
 ```js
-const host = document.querySelector("#host");
-const shadow = host.attachShadow({ mode: "open" });
+const shadowHost = document.querySelector("#host");
+const shadowRoot = shadowHost.attachShadow({ mode: "open" });
 const span = document.createElement("span");
 span.textContent = "I'm in the shadow DOM";
-shadow.appendChild(span);
+shadowRoot.appendChild(span);
 
 const upper = document.querySelector("button#upper");
 upper.addEventListener("click", () => {
